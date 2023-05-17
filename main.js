@@ -1,26 +1,33 @@
 "use strict";
 
 let in_game = true;
-let player = document.querySelector('#player');
+let elemCharacter = document.querySelector('#character');
+
+/*pueden haber muchos personajes con solo cambiar el tipo (considerando que tienen las mismas dimensiones cada accion)*/
+let character = new Character(elemCharacter, 2);
+
+character.idle();//solo para arrancar la animacion cuando arranca la pagina, esto no va aca
 
 function animacionPersonaje(e) {
-    let steps;
     switch (e.code) {
-        case "Space":
-            console.log("se apreto espacio");
-            steps = 4; /*steps que necesito para saltar*/
-            player.style.background = 'url(./sprites/Character1/Biker_jump.png) left center';
-            player.style.animation = `jump 1s steps(${steps}) infinite`;
-            break;
-        case "Backspace":
-            console.log("se apreto backspace");
-            steps = 6;
-            player.style.background = 'url(./sprites/Character1/Biker_run.png) left center';
-            player.style.animation = `run 1s steps(${steps}) infinite`;
-            break;
-        default:
-            console.log("otra tecla");
-            break;
+      case "Space":
+        character.jump();
+        break;
+      case "Backspace":
+        character.hurt();
+        break;
+      case "KeyR":
+        character.run();
+        break;
+      case "KeyI":
+        character.idle();
+        break;
+      case "KeyD":
+        character.death();
+        break;
+      default:
+        console.log("otra tecla");
+        break;
     }
 }
 

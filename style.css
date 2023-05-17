@@ -1,9 +1,7 @@
-#player{
+#character{
     height: 48px;
     width: 48px;
-    /* el url va a variar dependiendo del character que se elegió */
-    background: url(./sprites/Character1/Biker_idle.png) left center;
-    animation: idle 1s steps(4) infinite;/*animation varia dependiendo del user input, default es idle*/
+    
 }
 
 @keyframes idle {
