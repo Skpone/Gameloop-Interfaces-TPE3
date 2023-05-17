@@ -4,6 +4,12 @@
     
 }
 
+#game-container {
+    margin-top: 400px /*temporal para poder testear el salto*/
+}
+
+
+/*//////////////////////////////////////KEYFRAMES//////////////////////////////////////*/
 @keyframes idle {
     0%{background-position: 0px;}
     100%{background-position: -192px;}
@@ -26,5 +32,7 @@
 
 @keyframes jump {
     0%{background-position: 0px;}
+    50%{transform: translateY(-60px);}
     100%{background-position: -192px;}
 }
+/*//////////////////////////////////////KEYFRAMES//////////////////////////////////////*/

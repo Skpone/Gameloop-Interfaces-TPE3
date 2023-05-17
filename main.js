@@ -6,7 +6,7 @@ let speedRange = document.querySelector('#speed-range');
 /*pueden haber muchos personajes con solo cambiar el tipo (considerando que tienen las mismas dimensiones cada accion)*/
 let character = new Character(elemCharacter, speedRange.value, 2);
 
-character.idle();//solo para arrancar la animacion cuando arranca la pagina, esto no va aca
+character.idle();//solo para arrancar la animacion cuando arranca la pagina, dsp sacar
 
 function animacionPersonaje(e) {
     switch (e.code) {
