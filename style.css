@@ -1,0 +1,32 @@
+#player{
+    height: 48px;
+    width: 48px;
+    /* el url va a variar dependiendo del character que se elegió */
+    background: url(./sprites/Character1/Biker_idle.png) left center;
+    animation: idle 1s steps(4) infinite;/*animation varia dependiendo del user input, default es idle*/
+}
+
+@keyframes idle {
+    0%{background-position: 0px;}
+    100%{background-position: -192px;}
+}
+
+@keyframes run {
+    0%{background-position: 0px;}
+    100%{background-position: -288px;}
+}
+
+@keyframes death {
+    0%{background-position: 0px;}
+    100%{background-position: -288px;}
+}
+
+@keyframes hurt {
+    0%{background-position: 0px;}
+    100%{background-position: -96px;}
+}
+
+@keyframes jump {
+    0%{background-position: 0px;}
+    100%{background-position: -192px;}
+}
