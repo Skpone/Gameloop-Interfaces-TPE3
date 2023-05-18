@@ -4,64 +4,17 @@
 }
 
 body {
+    /* overflow hidden para evitar scrolling */
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-#character{
-    height: 48px;
-    width: 48px;
-}
-
-#parallax-background {
-    height: auto;
-    width: 1536px;
-    overflow: hidden;
-}
-
-#parallax-background div {
-    background-repeat: no-repeat;
-    background-size: 1536px 400px;
+/*//////////////////////////////////////PARALLAX//////////////////////////////////////*/
+#parallax-background * {
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    height: 100%; /*se pueden usar píxeles también*/
+    top: 0px; /*para ubicar mejor el "background"*/
     position: absolute;
-}
-
-#parallax-background #image-0 {
-    background: url(Archivos/Parallax-background/0.png) repeat-x;
-    animation: parallax 27s linear infinite;
-}
-
-#parallax-background #image-1 {
-    background: url(Archivos/Parallax-background/1.png) repeat-x;
-    animation: parallax 25s linear infinite;
-}
-
-#parallax-background #image-2 {
-    background: url(Archivos/Parallax-background/2.png) repeat-x;
-    animation: parallax 23s linear infinite;
-}
-
-#parallax-background #image-3 {
-    background: url(Archivos/Parallax-background/3.png) repeat-x;
-    animation: parallax 21s linear infinite;
-}
-
-#parallax-background #image-4 {
-    background: url(Archivos/Parallax-background/4.png) repeat-x;
-    animation: parallax 19s linear infinite;
-}
-
-#parallax-background #image-5 {
-    background: url(Archivos/Parallax-background/5.png) repeat-x;
-    animation: parallax 17s linear infinite;
-}
-
-#parallax-background #image-6 {
-    background: url(Archivos/Parallax-background/6.png) repeat-x;
-    animation: parallax 15s linear infinite;
 }
 
 @keyframes parallax {
@@ -74,7 +27,43 @@ body {
     
 }
 
-/*//////////////////////////////////////KEYFRAMES//////////////////////////////////////*/
+#parallax-background #image-0 {
+    background: url(Archivos/Parallax-background/0.png) repeat-x;
+}
+
+#parallax-background #image-1 {
+    background: url(Archivos/Parallax-background/1.png) repeat-x;
+}
+
+#parallax-background #image-2 {
+    background: url(Archivos/Parallax-background/2.png) repeat-x;
+}
+
+#parallax-background #image-3 {
+    background: url(Archivos/Parallax-background/3.png) repeat-x;
+}
+
+#parallax-background #image-4 {
+    background: url(Archivos/Parallax-background/4.png) repeat-x;
+}
+
+#parallax-background #image-5 {
+    background: url(Archivos/Parallax-background/5.png) repeat-x;
+}
+
+#parallax-background #image-6 {
+    background: url(Archivos/Parallax-background/6.png) repeat-x;
+}
+/*//////////////////////////////////////PARALLAX//////////////////////////////////////*/
+
+
+/*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
+#character{
+    top: 100px;
+    height: 48px;
+    width: 48px; /*modificable de 34px hasta 48px (inclusive)*/
+}
+
 @keyframes idle {
     0%{background-position: 0px;}
     100%{background-position: -192px;}
@@ -100,4 +89,4 @@ body {
     50%{transform: translateY(-60px);}
     100%{background-position: -192px;}
 }
-/*//////////////////////////////////////KEYFRAMES//////////////////////////////////////*/
+/*//////////////////////////////////////CHARACTER//////////////////////////////////////*/

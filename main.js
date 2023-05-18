@@ -1,12 +1,16 @@
 "use strict";
 
 let in_game = true;
-let elemCharacter = document.querySelector('#character');
-let speedRange = document.querySelector('#speed-range');
+const ELEM_CHARACTER = document.querySelector('#character');
+const ELEM_SPEED_RANGE = document.querySelector('#speed-range');
+const ELEM_PARALLAX = document.querySelector('#parallax-background');
+
 /*pueden haber muchos personajes con solo cambiar el tipo (considerando que tienen las mismas dimensiones cada accion)*/
-let character = new Character(elemCharacter, speedRange.value, 2);
+let character = new Character(ELEM_CHARACTER, ELEM_SPEED_RANGE.value, 2);
+let parallax = new Parallax(ELEM_PARALLAX, ELEM_SPEED_RANGE.value);
 
 character.idle();//solo para arrancar la animacion cuando arranca la pagina, dsp sacar
+parallax.execute();
 
 function animacionPersonaje(e) {
     switch (e.code) {
