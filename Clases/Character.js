@@ -1,7 +1,7 @@
-class Character {
+class Character extends GameObject {
     constructor(elemCharacter, speed, tipo){
+        super(speed);
         this.elemCharacter = elemCharacter;/*el elemento html que representa al character*/
-        this.speed = speed; /*el speed determina a que velocidad van las animaciones*/
         this.tipo = tipo;
     }
 

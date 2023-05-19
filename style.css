@@ -1,9 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
+    margin: 0;
     /* overflow hidden para evitar scrolling */
     overflow-x: hidden;
     overflow-y: hidden;
