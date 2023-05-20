@@ -1,9 +1,12 @@
 class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
-    constructor(elemCharacter, speed, tipo){
+    constructor(speed, tipo){
         this.speed = speed;
-        this.elemCharacter = elemCharacter;/*el elemento html que representa al character*/
+        this.elemGameContainer = document.querySelector('#game-container');
+        this.elemCharacter = document.createElement('div');/*el elemento html que representa al character*/
+        this.elemGameContainer.appendChild(this.elemCharacter);
+        this.elemCharacter.classList.add('character');
         this.tipo = tipo;
-        this.estado = 'run'; //estado por defecto del character
+        this.estado = 'blank'; //estado por defecto del character
         this.run();
     }
 
@@ -26,7 +29,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
         this.elemCharacter.style.animation = `hurt ${0.3/this.speed}s steps(2) 1`;
 
         const backToRun = () => {
-            this.estado = 'none';
+            this.estado = 'blank';
             this.run();
             this.elemCharacter.removeEventListener("animationend", backToRun);
         };
@@ -38,13 +41,12 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/death.png) left center`;
         this.elemCharacter.style.animation = `death ${6/this.speed}s steps(6) 1`;
 
-        const backToRun = () => {
-            this.estado = 'none';
-            this.run();
-            this.elemCharacter.removeEventListener("animationend", backToRun);
+        const finish = () => {
+            this.finish();
+            this.elemCharacter.removeEventListener("animationend", disappear);
         };
 
-        this.elemCharacter.addEventListener("animationend", backToRun);
+        this.elemCharacter.addEventListener("animationend", finish);
     }
 
     jump(){
@@ -54,13 +56,18 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
             this.elemCharacter.style.animation = `jump ${1.5/this.speed}s steps(4) 1`;
 
             const backToRun = () => {
-                this.estado = 'none';
+                this.estado = 'blank';
                 this.run();
                 this.elemCharacter.removeEventListener("animationend", backToRun);
             };
     
             this.elemCharacter.addEventListener("animationend", backToRun); 
         }
+    }
+
+    finish(){
+        this.estado = 'finished';
+        this.elemGameContainer.removeChild(this.elemCharacter);
     }
 
     status(){

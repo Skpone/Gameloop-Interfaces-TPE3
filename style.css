@@ -55,7 +55,7 @@ body {
 
 
 /*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
-#character{
+.character{
     height: 48px;
     width: 48px; /*modificable de 34px hasta 48px (inclusive)*/
     position: absolute;
