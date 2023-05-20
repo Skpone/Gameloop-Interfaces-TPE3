@@ -1,6 +1,6 @@
 class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
     constructor(elemCharacter, speed, tipo){
-        super(speed);
+        this.speed = speed;
         this.elemCharacter = elemCharacter;/*el elemento html que representa al character*/
         this.tipo = tipo;
         this.estado = 'run'; //estado por defecto del character
