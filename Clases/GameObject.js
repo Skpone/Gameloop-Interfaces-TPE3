@@ -6,7 +6,7 @@ class GameObject{
     status() {
         return ;
     }
-    reset() {
+    execute() {
         return ;
     }
 }

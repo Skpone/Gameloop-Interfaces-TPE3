@@ -11,6 +11,9 @@ let parallax = new Parallax(ELEM_PARALLAX, ELEM_SPEED_RANGE.value);
 
 parallax.animate();
 
+//NOTA:
+//asegurarme en cuándo use el executeObject() sea un intervalo random pero de minima de seg tiene que ser 2 seg de max lo q quiera
+
 function animacionPersonaje(e) {
     switch (e.code) {
       case "Space":
