@@ -23,31 +23,31 @@ body {
     
 }
 
-#parallax-background #image-0 {
+#image-0 {
     background: url(Archivos/Parallax-background/0.png) repeat-x;
 }
 
-#parallax-background #image-1 {
+#image-1 {
     background: url(Archivos/Parallax-background/1.png) repeat-x;
 }
 
-#parallax-background #image-2 {
+#image-2 {
     background: url(Archivos/Parallax-background/2.png) repeat-x;
 }
 
-#parallax-background #image-3 {
+#image-3 {
     background: url(Archivos/Parallax-background/3.png) repeat-x;
 }
 
-#parallax-background #image-4 {
+#image-4 {
     background: url(Archivos/Parallax-background/4.png) repeat-x;
 }
 
-#parallax-background #image-5 {
+#image-5 {
     background: url(Archivos/Parallax-background/5.png) repeat-x;
 }
 
-#parallax-background #image-6 {
+#image-6 {
     background: url(Archivos/Parallax-background/6.png) repeat-x;
 }
 /*//////////////////////////////////////PARALLAX//////////////////////////////////////*/

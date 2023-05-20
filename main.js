@@ -9,7 +9,6 @@ const ELEM_PARALLAX = document.querySelector('#parallax-background');
 let character = new Character(ELEM_CHARACTER, ELEM_SPEED_RANGE.value, 2);
 let parallax = new Parallax(ELEM_PARALLAX, ELEM_SPEED_RANGE.value);
 
-character.idle();//solo para arrancar la animacion cuando arranca la pagina, dsp sacar
 parallax.execute();
 
 function animacionPersonaje(e) {
@@ -57,7 +56,7 @@ function gameLoop() {
   rendering();
 
   if (in_game) {
-    requestAnimationFrame(gameLoop);
+    //requestAnimationFrame(gameLoop);
   }
 }
 

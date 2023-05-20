@@ -3,30 +3,63 @@ class Character extends GameObject {
         super(speed);
         this.elemCharacter = elemCharacter;/*el elemento html que representa al character*/
         this.tipo = tipo;
+        this.estado = 'none'; //estado por defecto del character
+        this.idle();
     }
 
-    idle(){
+    idle(){//es un estado que creo que no necesito, decidir si sacarlo
+        this.estado = 'idle';
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/idle.png) left center`;
         this.elemCharacter.style.animation = `idle ${1/this.speed}s steps(4) infinite`;
     }
 
     run(){
-        this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/run.png) left center`;
-        this.elemCharacter.style.animation = `run ${1/this.speed}s steps(6) infinite`;
+        if(this.estado != 'jump'){
+            this.estado = 'run';
+            this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/run.png) left center`;
+            this.elemCharacter.style.animation = `run ${1/this.speed}s steps(6) infinite`;
+        }
     }
 
     hurt(){
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/hurt.png) left center`;
-        this.elemCharacter.style.animation = `hurt ${1/this.speed}s steps(2) 1`;
+        this.elemCharacter.style.animation = `hurt ${0.2/this.speed}s steps(2) 1`;
+
+        const backToRun = () => {
+            this.estado = 'none';
+            this.run();
+            this.elemCharacter.removeEventListener("animationend", backToRun);
+        };
+
+        this.elemCharacter.addEventListener("animationend", backToRun); 
     }
 
     death(){
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/death.png) left center`;
-        this.elemCharacter.style.animation = `death 1s steps(6) 1`;
+        this.elemCharacter.style.animation = `death ${5/this.speed}s steps(6) 1`;
+
+        const backToRun = () => {
+            this.estado = 'none';
+            this.run();
+            this.elemCharacter.removeEventListener("animationend", backToRun);
+        };
+
+        this.elemCharacter.addEventListener("animationend", backToRun);
     }
 
     jump(){
-        this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/jump.png) left center`;
-        this.elemCharacter.style.animation = `jump ${1/this.speed}s steps(4) 1`;
+        if(this.estado == 'run'){
+            this.estado = 'jump';
+            this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/jump.png) left center`;
+            this.elemCharacter.style.animation = `jump ${1.5/this.speed}s steps(4) 1`;
+
+            const backToRun = () => {
+                this.estado = 'none';
+                this.run();
+                this.elemCharacter.removeEventListener("animationend", backToRun);
+            };
+    
+            this.elemCharacter.addEventListener("animationend", backToRun); 
+        }
     }
 }
