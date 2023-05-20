@@ -9,7 +9,7 @@ const ELEM_PARALLAX = document.querySelector('#parallax-background');
 let character = new Character(ELEM_CHARACTER, ELEM_SPEED_RANGE.value, 2);
 let parallax = new Parallax(ELEM_PARALLAX, ELEM_SPEED_RANGE.value);
 
-parallax.execute();
+parallax.animate();
 
 function animacionPersonaje(e) {
     switch (e.code) {

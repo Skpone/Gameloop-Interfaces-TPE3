@@ -1,4 +1,4 @@
-class Parallax{
+class Parallax{ /*Esta clase del parallax existe para la funcionalidad del speed*/
     constructor(elemParallax, speed){
         this.elemParallax = elemParallax;
         this.speed = speed;
@@ -12,7 +12,7 @@ class Parallax{
         this.image6 = this.elemParallax.querySelector('#image-6');
     }
 
-    execute(){
+    animate(){
         this.image0.style.animation = `parallax ${27/this.speed}s linear infinite`;
         this.image1.style.animation = `parallax ${25/this.speed}s linear infinite`;
         this.image2.style.animation = `parallax ${23/this.speed}s linear infinite`;
