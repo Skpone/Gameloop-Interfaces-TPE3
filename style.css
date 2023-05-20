@@ -93,37 +93,42 @@ body {
 
 /*//////////////////////////////////////GAME OBJECTS//////////////////////////////////////*/
 .afip {
-
-}
-@keyframes afip {
-    
+    /*setearle el tamaño (height y width)*/
+    position: absolute;
+    bottom: 60%;
+    background-image: url(Archivos/AFIP.jpg);
 }
 
 .dollar {
-
-}
-@keyframes dollar {
-    
+    /*setearle el tamaño (height y width)*/
+    position: absolute;
+    bottom: 60%;
+    background-image: url(Archivos/dollar.png);
 }
 
 .clock {
-
-}
-@keyframes clock {
-    
+    /*setearle el tamaño (height y width)*/
+    position: absolute;
+    bottom: 41%;
+    background-image: url(Archivos/clock.png);
 }
 
 .peso {
-
-}
-@keyframes peso {
-    
+    /*setearle el tamaño (height y width)*/
+    position: absolute;
+    bottom: 60%;
+    background-image: url(Archivos/peso.png);
 }
 
 .thief {
-
+    /*setearle el tamaño (height y width)*/
+    position: absolute;
+    bottom: 41%;
+    background-image: url(Archivos/thief.png);
 }
-@keyframes thief {
-    
+
+@keyframes gameObject {
+    0%{transform: translateX(1600px);}
+    100%{transform: translateX(-100px);}
 }
 /*//////////////////////////////////////GAME OBJECTS//////////////////////////////////////*/
