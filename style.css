@@ -3,6 +3,7 @@ body {
     /* overflow hidden para evitar scrolling */
     overflow-x: hidden;
     overflow-y: hidden;
+    image-rendering: pixelated;
 }
 
 /*//////////////////////////////////////PARALLAX//////////////////////////////////////*/
@@ -55,9 +56,12 @@ body {
 
 /*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
 #character{
-    top: 100px;
     height: 48px;
     width: 48px; /*modificable de 34px hasta 48px (inclusive)*/
+    position: absolute;
+    bottom: 41%;
+    left: 10px;
+    z-index: 1;
 }
 
 @keyframes idle {
@@ -86,3 +90,40 @@ body {
     100%{background-position: -192px;}
 }
 /*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
+
+/*//////////////////////////////////////GAME OBJECTS//////////////////////////////////////*/
+.afip {
+
+}
+@keyframes afip {
+    
+}
+
+.dollar {
+
+}
+@keyframes dollar {
+    
+}
+
+.clock {
+
+}
+@keyframes clock {
+    
+}
+
+.peso {
+
+}
+@keyframes peso {
+    
+}
+
+.thief {
+
+}
+@keyframes thief {
+    
+}
+/*//////////////////////////////////////GAME OBJECTS//////////////////////////////////////*/

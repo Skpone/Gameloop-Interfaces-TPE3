@@ -1,10 +1,10 @@
-class Character extends GameObject {
+class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
     constructor(elemCharacter, speed, tipo){
         super(speed);
         this.elemCharacter = elemCharacter;/*el elemento html que representa al character*/
         this.tipo = tipo;
-        this.estado = 'none'; //estado por defecto del character
-        this.idle();
+        this.estado = 'run'; //estado por defecto del character
+        this.run();
     }
 
     idle(){//es un estado que creo que no necesito, decidir si sacarlo
@@ -23,7 +23,7 @@ class Character extends GameObject {
 
     hurt(){
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/hurt.png) left center`;
-        this.elemCharacter.style.animation = `hurt ${0.2/this.speed}s steps(2) 1`;
+        this.elemCharacter.style.animation = `hurt ${0.3/this.speed}s steps(2) 1`;
 
         const backToRun = () => {
             this.estado = 'none';
@@ -36,7 +36,7 @@ class Character extends GameObject {
 
     death(){
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/death.png) left center`;
-        this.elemCharacter.style.animation = `death ${5/this.speed}s steps(6) 1`;
+        this.elemCharacter.style.animation = `death ${6/this.speed}s steps(6) 1`;
 
         const backToRun = () => {
             this.estado = 'none';
@@ -61,5 +61,9 @@ class Character extends GameObject {
     
             this.elemCharacter.addEventListener("animationend", backToRun); 
         }
+    }
+
+    status(){
+        return this.personaje.getBoundingClientRect();
     }
 }
