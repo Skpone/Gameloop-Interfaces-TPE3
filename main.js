@@ -11,8 +11,12 @@ let parallax = new Parallax(ELEM_PARALLAX, ELEM_SPEED_RANGE.value);
 
 parallax.animate();
 
-//NOTA:
-//asegurarme en cuándo use el executeObject() sea un intervalo random pero de minima de seg tiene que ser 2 seg de max lo q quiera
+let poolDeGameObjects = new ObjectPool(ELEM_SPEED_RANGE.value);
+
+setInterval(function () {
+  let object = poolDeGameObjects.obtainObject();
+  poolDeGameObjects.executeObject(object);
+}, (Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000)); //quiero que los gameobjects aparezcan entre 2 y 4 segundos
 
 function animacionPersonaje(e) {
     switch (e.code) {

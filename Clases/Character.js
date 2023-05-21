@@ -26,7 +26,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
 
     hurt(){
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/hurt.png) left center`;
-        this.elemCharacter.style.animation = `hurt ${0.3/this.speed}s steps(2) 1`;
+        this.elemCharacter.style.animation = `hurt ${0.25/this.speed}s steps(2) 1`;
 
         const backToRun = () => {
             this.estado = 'blank';
@@ -43,7 +43,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
 
         const finish = () => {
             this.finish();
-            this.elemCharacter.removeEventListener("animationend", disappear);
+            this.elemCharacter.removeEventListener("animationend", finish);
         };
 
         this.elemCharacter.addEventListener("animationend", finish);
