@@ -56,8 +56,8 @@ body {
 
 /*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
 .character{
-    height: 48px;
-    width: 48px; /*modificable de 34px hasta 48px (inclusive)*/
+    height: 40px;
+    width: 34px; /*modificable de 34px hasta 48px (inclusive)*/
     position: absolute;
     bottom: 41%;
     left: 10px;
@@ -93,37 +93,42 @@ body {
 
 /*//////////////////////////////////////GAME OBJECTS//////////////////////////////////////*/
 .afip {
-    /*setearle el tamaño (height y width)*/
+    height: 24px;
+    width: 48px;
     position: absolute;
-    bottom: 60%;
+    bottom: 50%;
     background-image: url(Archivos/AFIP.jpg);
 }
 
 .dollar {
-    /*setearle el tamaño (height y width)*/
+    height: 20px;
+    width: 48px;
     position: absolute;
-    bottom: 60%;
+    bottom: 50%;
     background-image: url(Archivos/dollar.png);
 }
 
 .clock {
-    /*setearle el tamaño (height y width)*/
+    height: 48px;
+    width: 48px;
     position: absolute;
-    bottom: 41%;
+    bottom: 40%;
     background-image: url(Archivos/clock.png);
 }
 
 .peso {
-    /*setearle el tamaño (height y width)*/
+    height: 20px;
+    width: 48px;
     position: absolute;
-    bottom: 60%;
+    bottom: 40%;
     background-image: url(Archivos/peso.png);
 }
 
 .thief {
-    /*setearle el tamaño (height y width)*/
+    height: 49px;
+    width: 48px;
     position: absolute;
-    bottom: 41%;
+    bottom: 40%;
     background-image: url(Archivos/thief.png);
 }
 
