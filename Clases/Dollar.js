@@ -3,6 +3,7 @@ class Dollar extends GameObject{
         super(speed);
         /*instanciarlo implica crear el div*/
         this.elemDollar = document.createElement('div');
+        this.tipoDeObjecto = 'dollar';
     }
 
     status(){
@@ -24,8 +25,7 @@ class Dollar extends GameObject{
     }
 
     hit(character) {//terminar de implementar
-
       this.elemGameContainer.removeChild(this.elemDollar);
-      return ;
+      return true;
   }
 }

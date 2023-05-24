@@ -3,6 +3,7 @@ class Thief extends GameObject{
         super(speed);
         /*instanciarlo implica crear el div*/
         this.elemThief = document.createElement('div');
+        this.tipoDeObjecto = 'thief';
     }
 
     status(){
@@ -24,6 +25,10 @@ class Thief extends GameObject{
     }
 
     hit(character) {//terminar de implementar
-      character.hurt();
+      character.hurt();//si el character está saltando, entonces no procede a lastimar
+      if(character.estado == 'hurt'){//si se lastimó al character
+        return true;
+      }
+      return false;
   }
 }

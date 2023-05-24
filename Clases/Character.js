@@ -26,6 +26,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
 
     hurt(){
         if (this.estado == "run") { //solo lastimar cuando se está corriendo porque el único que lastima es el thief (qué está en el suelo)
+          this.estado = 'hurt';
           this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/hurt.png) left center`;
           this.elemCharacter.style.animation = `hurt ${0.25/this.speed}s steps(2) 1`;
 
@@ -39,7 +40,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
         }
     }
 
-    death(){
+    death(){//es un estado que le veo la necesidad, decidir si sacarlo
         this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/death.png) left center`;
         this.elemCharacter.style.animation = `death ${6/this.speed}s steps(6) 1`;
 

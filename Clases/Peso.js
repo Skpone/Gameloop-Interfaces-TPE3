@@ -3,6 +3,7 @@ class Peso extends GameObject{
         super(speed);
         /*instanciarlo implica crear el div*/
         this.elemPeso = document.createElement('div');
+        this.tipoDeObjecto = 'peso';
     }
 
     status(){
@@ -24,8 +25,7 @@ class Peso extends GameObject{
     }
 
     hit(character) {//terminar de implementar
-
       this.elemGameContainer.removeChild(this.elemPeso);
-      return ;
+      return true;
   }
 }

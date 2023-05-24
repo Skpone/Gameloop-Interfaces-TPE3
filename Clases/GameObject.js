@@ -2,6 +2,7 @@ class GameObject{
     constructor(speed){
         this.speed = speed;
         this.elemGameContainer = document.querySelector('#game-container');
+        this.tipoDeObjecto = 'blank';
     }
     status() {
         return ;
@@ -10,6 +11,6 @@ class GameObject{
         return ;
     }
     hit(character) {
-        return ;
+        return ; //retorna true o false dependiendo de si se cumplieron los criterios del hit dependiendo de la clase
     }
 }

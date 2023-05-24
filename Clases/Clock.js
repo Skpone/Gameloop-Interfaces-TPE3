@@ -3,6 +3,7 @@ class Clock extends GameObject{
         super(speed);
         /*instanciarlo implica crear el div*/
         this.elemClock = document.createElement('div');
+        this.tipoDeObjecto = 'clock';
     }
 
     status(){
@@ -24,8 +25,7 @@ class Clock extends GameObject{
     }
 
     hit(character) {//terminar de implementar
-      
       this.elemGameContainer.removeChild(this.elemClock);
-      return ;
+      return true;
   }
 }

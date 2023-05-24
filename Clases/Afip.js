@@ -3,6 +3,7 @@ class Afip extends GameObject{
         super(speed);
         /*instanciarlo implica crear el div*/
         this.elemAfip = document.createElement('div');
+        this.tipoDeObjecto = 'afip';
     }
 
     status(){
@@ -24,6 +25,7 @@ class Afip extends GameObject{
     }
 
     hit(character) {//terminar de implementar
-      character.death();
-  }
+      character.finish();
+      return true;
+    }
 }

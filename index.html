@@ -6,11 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Vacaciones a Miami! Game</title>
+    <title>Game ESCAPA DE ARGENTINA!!</title>
 </head>
 
 <body>
     <div id="game-container">
+        <!-- draft del menú -->
+        <div id="menu">
+            <h1>Titulo!</h1>
+            <button>Como jugar!</button> <!-- se hace un display block, cuándo va para atrás un display none; -->
+            <button>Jugar!</button> <!-- se hace un display none y arranca el juego -->
+            <!-- sección para elegir personajes -->
+            <div id="speed">
+                <h2>Elije la dificultad!</h2>
+                <input type="range" id="speed-range" min="1" max="3" value="1">
+            </div>
+        </div>
+
+        <!-- hacer pantalla de juego finalizado??, una para game over, otra para ganaste?, o juntar muchos dólares nomás? y con botón volver a jugar? (ver como volver a instanciar el juego) -->
+
         <div id="parallax-background">
             <!-- aplicar parallax -->
             <div class="images" id="image-0"></div>
@@ -22,11 +36,12 @@
             <div class="images" id="image-6"></div>
         </div>
         
-        <!-- falta estructurar pero esta implementado -->
-        <input type="range" id="speed-range" min="1" max="3" value="1">
-        
         <div id="timer">
             <!-- aplicar funcionalidad counter-time -->
+        </div>
+
+        <div id="dollars">
+            <!-- muestran cantidad de dólares -->
         </div>
 
         <!-- un form como pantalla de inicio donde completar el form se actualizen todos los parametros -->
