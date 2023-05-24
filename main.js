@@ -16,7 +16,7 @@ let poolDeGameObjects = new ObjectPool(ELEM_SPEED_RANGE.value);
 setInterval(function () {
   let object = poolDeGameObjects.obtainObject();
   poolDeGameObjects.executeObject(object);
-}, (Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000)); //quiero que los gameobjects aparezcan entre 2 y 4 segundos
+}, (Math.floor((Math.random() * (3000 - 1000 + 1)) + 1000))/ELEM_SPEED_RANGE.value); //quiero que los gameobjects aparezcan entre 2 y 4 segundos (dividido por la speed)
 
 function animacionPersonaje(e) {
     switch (e.code) {
@@ -59,7 +59,7 @@ function refresh_status() {
         characterStatus.left > objectStatus.right ||
         characterStatus.bottom < objectStatus.top ||
         characterStatus.top > objectStatus.bottom)) {
-        console.log('colision');
+        gameObject.hit(character);
     }
     });
 }

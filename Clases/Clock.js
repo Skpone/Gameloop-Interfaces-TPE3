@@ -22,4 +22,10 @@ class Clock extends GameObject{
           });
         });
     }
+
+    hit(character) {//terminar de implementar
+      
+      this.elemGameContainer.removeChild(this.elemClock);
+      return ;
+  }
 }

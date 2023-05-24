@@ -22,4 +22,10 @@ class Peso extends GameObject{
           });
         });
     }
+
+    hit(character) {//terminar de implementar
+
+      this.elemGameContainer.removeChild(this.elemPeso);
+      return ;
+  }
 }

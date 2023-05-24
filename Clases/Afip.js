@@ -22,4 +22,8 @@ class Afip extends GameObject{
           });
         });
     }
+
+    hit(character) {//terminar de implementar
+      character.death();
+  }
 }

@@ -9,4 +9,7 @@ class GameObject{
     execute() {
         return ;
     }
+    hit(character) {
+        return ;
+    }
 }

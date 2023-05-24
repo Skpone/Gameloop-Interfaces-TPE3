@@ -25,16 +25,18 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
     }
 
     hurt(){
-        this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/hurt.png) left center`;
-        this.elemCharacter.style.animation = `hurt ${0.25/this.speed}s steps(2) 1`;
+        if (this.estado == "run") { //solo lastimar cuando se está corriendo porque el único que lastima es el thief (qué está en el suelo)
+          this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/hurt.png) left center`;
+          this.elemCharacter.style.animation = `hurt ${0.25/this.speed}s steps(2) 1`;
 
-        const backToRun = () => {
-            this.estado = 'blank';
+          const backToRun = () => {
+            this.estado = "blank";
             this.run();
             this.elemCharacter.removeEventListener("animationend", backToRun);
-        };
+          };
 
-        this.elemCharacter.addEventListener("animationend", backToRun); 
+          this.elemCharacter.addEventListener("animationend", backToRun);
+        }
     }
 
     death(){

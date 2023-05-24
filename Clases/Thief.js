@@ -22,4 +22,8 @@ class Thief extends GameObject{
           });
         });
     }
+
+    hit(character) {//terminar de implementar
+      character.hurt();
+  }
 }
