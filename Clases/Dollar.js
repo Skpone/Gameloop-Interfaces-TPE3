@@ -17,6 +17,7 @@ class Dollar extends GameObject{
 
         return new Promise((resolve) => {
           this.elemDollar.addEventListener("animationend", () => {
+            this.elemGameContainer.removeChild(this.elemDollar);
             resolve();
           });
         });

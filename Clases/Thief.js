@@ -17,6 +17,7 @@ class Thief extends GameObject{
 
         return new Promise((resolve) => {
           this.elemThief.addEventListener("animationend", () => {
+            this.elemGameContainer.removeChild(this.elemThief);
             resolve();
           });
         });

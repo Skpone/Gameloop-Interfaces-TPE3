@@ -8,7 +8,7 @@ body {
 
 /*//////////////////////////////////////PARALLAX//////////////////////////////////////*/
 .images {
-    width: 100%;
+    width: 1600px;
     height: 100%; /*se pueden usar píxeles también*/
     top: 0px; /*para ubicar mejor el "background"*/
     position: absolute;
@@ -134,6 +134,6 @@ body {
 
 @keyframes gameObject {
     0%{transform: translateX(1600px);}
-    100%{transform: translateX(-100px);}
+    100%{transform: translateX(-49px);}
 }
 /*//////////////////////////////////////GAME OBJECTS//////////////////////////////////////*/

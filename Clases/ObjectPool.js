@@ -9,9 +9,13 @@ class ObjectPool {
   // Función para tomar un objeto del pool
   obtainObject() {
     if (this.pool.length > 0) {
-      // Si hay objetos disponibles en el pool, tomar uno
-      return this.pool.pop();
+      // Si hay objetos disponibles en el pool, tomar uno random, cosa de que luego no se repitan patrones
+      let randomIndex = Math.floor(Math.random() * this.pool.length);
+      let randomElement = this.pool[randomIndex];
+      this.pool.splice(randomIndex, 1);
+      return randomElement;
     }
+
     // Si no hay objetos disponibles, crear uno nuevo
     let opciones = ["Dollar", "Clock", "Thief", "Afip", "Peso"];
     let random;

@@ -17,6 +17,7 @@ class Peso extends GameObject{
 
         return new Promise((resolve) => {
           this.elemPeso.addEventListener("animationend", () => {
+            this.elemGameContainer.removeChild(this.elemPeso);
             resolve();
           });
         });

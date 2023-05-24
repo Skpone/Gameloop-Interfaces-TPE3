@@ -17,6 +17,7 @@ class Clock extends GameObject{
 
         return new Promise((resolve) => {
           this.elemClock.addEventListener("animationend", () => {
+            this.elemGameContainer.removeChild(this.elemClock);
             resolve();
           });
         });

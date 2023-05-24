@@ -17,6 +17,7 @@ class Afip extends GameObject{
 
         return new Promise((resolve) => {
           this.elemAfip.addEventListener("animationend", () => {
+            this.elemGameContainer.removeChild(this.elemAfip);
             resolve();
           });
         });
