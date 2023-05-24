@@ -6,7 +6,7 @@ class Afip extends GameObject{
     }
 
     status(){
-        return this.personaje.getBoundingClientRect();
+        return this.elemAfip.getBoundingClientRect();
     }
 
     execute(){

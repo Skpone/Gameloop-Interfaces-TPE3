@@ -6,7 +6,7 @@ class Peso extends GameObject{
     }
 
     status(){
-        return this.personaje.getBoundingClientRect();
+        return this.elemPeso.getBoundingClientRect();
     }
 
     execute(){

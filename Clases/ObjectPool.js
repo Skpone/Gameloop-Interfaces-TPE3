@@ -3,6 +3,7 @@ class ObjectPool {
   constructor(speed) {
     this.speed = speed;
     this.pool = []; //arrayList donde guardamos los gameObjects
+    this.enExecucion = []; //arraylist con los elementos que están en el game
     this.maxSize = 25;
   }
 
@@ -54,11 +55,16 @@ class ObjectPool {
 
   // Función para devolver un objeto al pool
   async executeObject(object) {
+    this.enExecucion.push(object); //agregamos el objeto en la lista
     await object.execute(); //ejecutar el gameObject
+    //una vez que el objeto se termino de ejecutar
+    let objectIndex = this.enExecucion.indexOf(object); //lo ubico
+    this.enExecucion.splice(objectIndex, 1); //lo saco de la lista de objetos en ejecucion
 
     if (this.pool.length < this.maxSize) {
       // Si el pool no ha alcanzado su tamaño máximo, devolver el objeto al pool
       this.pool.push(object);
     }
   }
+
 }

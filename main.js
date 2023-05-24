@@ -48,8 +48,20 @@ function process_user_input() {
   });
 }
 
+// actualizar estado
 function refresh_status() {
-  // actualizar estado
+  //PD: luego divirlo o hacerlo en una sola funcion, por ahora seguir implementando
+    let objectsEnEjecucion = poolDeGameObjects.enExecucion;
+    objectsEnEjecucion.forEach(gameObject => {
+      let characterStatus = character.status();
+      let objectStatus = gameObject.status();
+      if (!(characterStatus.right < objectStatus.left ||
+        characterStatus.left > objectStatus.right ||
+        characterStatus.bottom < objectStatus.top ||
+        characterStatus.top > objectStatus.bottom)) {
+        console.log('colision');
+    }
+    });
 }
 
 function rendering() {
@@ -63,7 +75,7 @@ function gameLoop() {
   rendering();
 
   if (in_game) {
-    //requestAnimationFrame(gameLoop);
+    requestAnimationFrame(gameLoop);
   }
 }
 

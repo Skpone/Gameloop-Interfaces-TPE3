@@ -6,7 +6,7 @@ class Dollar extends GameObject{
     }
 
     status(){
-        return this.personaje.getBoundingClientRect();
+        return this.elemDollar.getBoundingClientRect();
     }
 
     execute(){

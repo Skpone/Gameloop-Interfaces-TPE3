@@ -71,6 +71,6 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
     }
 
     status(){
-        return this.personaje.getBoundingClientRect();
+        return this.elemCharacter.getBoundingClientRect();
     }
 }

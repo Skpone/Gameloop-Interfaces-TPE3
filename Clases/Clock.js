@@ -6,7 +6,7 @@ class Clock extends GameObject{
     }
 
     status(){
-        return this.personaje.getBoundingClientRect();
+        return this.elemClock.getBoundingClientRect();
     }
 
     execute(){

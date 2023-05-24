@@ -6,7 +6,7 @@ class Thief extends GameObject{
     }
 
     status(){
-        return this.personaje.getBoundingClientRect();
+        return this.elemThief.getBoundingClientRect();
     }
 
     execute(){
