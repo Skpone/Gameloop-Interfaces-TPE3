@@ -76,8 +76,8 @@ function refresh_status() {
         if(hit){
           switch (gameObject.tipoDeObjecto) {
             case "thief":
-              if(dollars >= 5){
-                dollars = dollars - 5;
+              if(dollars >= (1*ELEM_SPEED_RANGE.value)){
+                dollars = dollars - (1*ELEM_SPEED_RANGE.value);
               }else{
                 dollars = dollars - dollars;
               }
