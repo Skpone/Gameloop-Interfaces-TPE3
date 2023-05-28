@@ -1,54 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Game ESCAPA DE ARGENTINA!!</title>
-</head>
+  </head>
 
-<body>
-    <div id="game-container">
-        <!-- draft del menú -->
-        <div id="menu">
-            <h1>Titulo!</h1>
-            <button>Como jugar!</button> <!-- se hace un display block, cuándo va para atrás un display none; -->
-            <button>Jugar!</button> <!-- se hace un display none y arranca el juego -->
-            <!-- sección para elegir personajes -->
-            <div id="speed">
-                <h2>Elije la dificultad!</h2>
-                <input type="range" id="speed-range" min="1" max="3" value="1">
-            </div>
-        </div>
+  <body>
+    
+    <div id="menus">
+      <div id="main-menu">
+        <h1>Titulo!</h1>
 
-        <!-- hacer pantalla de juego finalizado??, una para game over, otra para ganaste?, o juntar muchos dólares nomás? y con botón volver a jugar? (ver como volver a instanciar el juego) -->
+        <button class="how-to-play-button">Como jugar!</button>
 
-        <div id="parallax-background">
-            <!-- aplicar parallax -->
-            <div class="images" id="image-0"></div>
-            <div class="images" id="image-1"></div>
-            <div class="images" id="image-2"></div>
-            <div class="images" id="image-3"></div>
-            <div class="images" id="image-4"></div>
-            <div class="images" id="image-5"></div>
-            <div class="images" id="image-6"></div>
-        </div>
-        
-        <div id="timer">
-            <!-- aplicar funcionalidad counter-time -->
-        </div>
+        <button id="play-button">Jugar!</button>
 
-        <div id="dollars">
-            <!-- muestran cantidad de dólares -->
-        </div>
+        <h2>Elije la dificultad!</h2>
+        <input type="range" id="speed-range" min="1" max="3" value="1" />
 
-        <!-- un form como pantalla de inicio donde completar el form se actualizen todos los parametros -->
+        <h2>Elije tu personaje</h2>
+        <select name="character" id="character-select">
+          <!-- completar -->
+          <option value=""></option>
+          <option value=""></option>
+          <option value=""></option>
+          <option value=""></option>
+        </select>
+
+        <h2>Elije a donde queres escapar</h2>
+        <select name="dollars-goal" id="">
+          <option value="">Dubai(80.000 dollars)</option>
+          <option value="">Tokio(40.000 dollars)</option>
+          <!-- seguir -->
+        </select>
+      </div>
+
+      <div id="how-to-play">
+        <button class="main-menu-button">←</button>
+        <p>
+          Debes juntar los dólares necesarios para escapar de argentina a dónde
+          quieras! Pero no será fácil, los ladrones te cagan a trompadas y
+          quitan dólares, No dejes que se te acabe el tiempo!!, cada reloj que
+          agarrás prolonga el tiempo hasta que sea demasiado tarde! D:, EVITA A
+          LA AFIP, tu sueño morirá... Aumenta la velocidad del juego a tu gusto!
+          PD:Existe un item raro que no sirve para nada... poco probable de que
+          aparezca en el juego.
+        </p>
+      </div>
+
+      <div id="menu-fin-win">
+        <h1>Titulo!</h1>
+
+        <h1>
+          Conseguiste los suficientes (poner dolares) dólares para escapar
+        </h1>
+        <button class="main-menu-button">Volver a jugar</button>
+      </div>
+
+      <div id="menu-fin-lose">
+        <h1>Titulo!</h1>
+
+        <h1>"razon x la cual perdiste"</h1>
+        <button class="main-menu-button">Volver a jugar</button>
+      </div>
+      
     </div>
 
+    <div id="game-container">
+      <div id="parallax-background">
+        <!-- aplicar parallax -->
+        <div class="images" id="image-0"></div>
+        <div class="images" id="image-1"></div>
+        <div class="images" id="image-2"></div>
+        <div class="images" id="image-3"></div>
+        <div class="images" id="image-4"></div>
+        <div class="images" id="image-5"></div>
+        <div class="images" id="image-6"></div>
+      </div>
 
-    <script src=""></script> <!-- .js de clases que vayamos a crear -->
+      <div id="timer">
+        <!-- aplicar funcionalidad counter-time -->
+      </div>
+
+      <div id="dollars">
+        <!-- muestran cantidad de dólares -->
+      </div>
+
+      <!-- un form como pantalla de inicio donde completar el form se actualizen todos los parametros -->
+    </div>
+
+    <script src=""></script>
+    <!-- .js de clases que vayamos a crear -->
     <script src="Clases/ObjectPool.js"></script>
     <script src="Clases/GameObject.js"></script>
     <script src="Clases/Parallax.js"></script>
@@ -58,8 +103,7 @@
     <script src="Clases/Dollar.js"></script>
     <script src="Clases/Peso.js"></script>
     <script src="Clases/Thief.js"></script>
-    
-    <script src="main.js"></script>
-</body>
 
+    <script src="main.js"></script>
+  </body>
 </html>

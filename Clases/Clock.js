@@ -24,7 +24,7 @@ class Clock extends GameObject{
         });
     }
 
-    hit(character) {//terminar de implementar
+    hit(character) {
       this.elemGameContainer.removeChild(this.elemClock);
       return true;
   }

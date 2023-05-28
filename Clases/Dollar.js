@@ -24,7 +24,7 @@ class Dollar extends GameObject{
         });
     }
 
-    hit(character) {//terminar de implementar
+    hit(character) {
       this.elemGameContainer.removeChild(this.elemDollar);
       return true;
   }

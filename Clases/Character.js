@@ -31,7 +31,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
           this.elemCharacter.style.animation = `hurt ${0.25/this.speed}s steps(2) 1`;
 
           const backToRun = () => {
-            this.estado = "blank";
+            this.estado = 'undefined';
             this.run();
             this.elemCharacter.removeEventListener("animationend", backToRun);
           };
@@ -59,7 +59,7 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
             this.elemCharacter.style.animation = `jump ${1.5/this.speed}s steps(4) 1`;
 
             const backToRun = () => {
-                this.estado = 'blank';
+                this.estado = 'undefined';
                 this.run();
                 this.elemCharacter.removeEventListener("animationend", backToRun);
             };

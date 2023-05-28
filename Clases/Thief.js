@@ -24,7 +24,7 @@ class Thief extends GameObject{
         });
     }
 
-    hit(character) {//terminar de implementar
+    hit(character) {
       character.hurt();//si el character está saltando, entonces no procede a lastimar
       if(character.estado == 'hurt'){//si se lastimó al character
         return true;
