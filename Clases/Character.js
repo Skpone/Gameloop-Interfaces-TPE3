@@ -1,4 +1,4 @@
-class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
+class Character {
     constructor(speed, tipo){
         this.speed = speed;
         this.elemGameContainer = document.querySelector('#game-container');
@@ -6,14 +6,8 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
         this.elemGameContainer.appendChild(this.elemCharacter);
         this.elemCharacter.classList.add('character');
         this.tipo = tipo;
-        this.estado = 'blank'; //estado por defecto del character
+        this.estado = 'undefined'; //estado por defecto del character
         this.run();
-    }
-
-    idle(){//es un estado que creo que no necesito, decidir si sacarlo
-        this.estado = 'idle';
-        this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/idle.png) left center`;
-        this.elemCharacter.style.animation = `idle ${1/this.speed}s steps(4) infinite`;
     }
 
     run(){
@@ -38,18 +32,6 @@ class Character /*extends GameObject, HACER EL CHARACTER GAMEOBJECT???*/ {
 
           this.elemCharacter.addEventListener("animationend", backToRun);
         }
-    }
-
-    death(){//es un estado que le veo la necesidad, decidir si sacarlo
-        this.elemCharacter.style.background = `url(./Archivos/Character${this.tipo}/death.png) left center`;
-        this.elemCharacter.style.animation = `death ${6/this.speed}s steps(6) 1`;
-
-        const finish = () => {
-            this.finish();
-            this.elemCharacter.removeEventListener("animationend", finish);
-        };
-
-        this.elemCharacter.addEventListener("animationend", finish);
     }
 
     jump(){
