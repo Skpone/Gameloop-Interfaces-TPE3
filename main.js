@@ -1,33 +1,61 @@
 "use strict";
 
-let in_game = true;
+let in_game = false;
+
+/*//////////////////////////////////////GAME CONTAINER//////////////////////////////////////*/
 const ELEM_CHARACTER = document.querySelector('#character');
-const ELEM_SPEED_RANGE = document.querySelector('#speed-range');
 const ELEM_PARALLAX = document.querySelector('#parallax-background');
 const ELEM_TIMER = document.querySelector('#timer');
 const ELEM_DOLLARS = document.querySelector('#dollars');
+/*//////////////////////////////////////GAME CONTAINER//////////////////////////////////////*/
 
-/*pueden haber muchos personajes con solo cambiar el tipo (considerando que tienen las mismas dimensiones cada accion)*/
-let gameManager = new GameManager(ELEM_PARALLAX, ELEM_SPEED_RANGE.value, 2);
+/*//////////////////////////////////////MENUS//////////////////////////////////////*/
+const ELEM_MAIN_MENU = document.querySelector('#main-menu');
+const ELEM_HOW_TO_PLAY = document.querySelector('#how-to-play');
+const ELEM_MENU_END_WIN = document.querySelector('#menu-end-win');
+const ELEM_MENU_END_LOSE = document.querySelector('#menu-end-lose');
+
+/*/////////////////////////////////BUTTONS/////////////////////////////////*/
+const ELEM_MAIN_MENU_BUTTONS = document.querySelectorAll('.main-menu-button');
+const ELEM_PLAY_BUTTON = document.querySelector('#play-button');
+const ELEM_HOW_TO_PLAY_BUTTON = document.querySelector('#how-to-play-button');
+/*/////////////////////////////////BUTTONS/////////////////////////////////*/
+
+/*/////////////////////////////////OTROS/////////////////////////////////*/
+const ELEM_CHARACTER_SELECT = document.querySelector('#character-select');
+const ELEM_DOLLARS_GOAL_SELECT = document.querySelector('#dollars-goal-select');
+const ELEM_SPEED_RANGE = document.querySelector('#speed-range');
+/*/////////////////////////////////OTROS/////////////////////////////////*/
+
+/*//////////////////////////////////////MENUS//////////////////////////////////////*/
 
 let dollars = 0; //cantidad de dólares
 let time = 100; //tiempo (con 100 segundos default)
+let gameManager = null; //lo declaramos acó para qué todas las funciones la puedan usar
 
-//counter-timing
-setInterval(() => {
-  if(time == 0){//se terminó el tiempo
-    //terminar el juego
-  }else{
-    time = time -1;
-  }
-}, (1000/ELEM_SPEED_RANGE.value));
+function initializeGame(){
+  in_game = true;
 
-//spawnear gameObjects
-setInterval(function () {
-  gameManager.spawnGameObject();
-}, (Math.floor((Math.random() * (3000 - 1000 + 1)) + 1000))/ELEM_SPEED_RANGE.value); //quiero que los gameobjects aparezcan entre 2 y 4 segundos (dividido por la speed)
+  /*pueden haber muchos personajes con solo cambiar el tipo (considerando que tienen las mismas dimensiones cada accion)*/
+  gameManager = new GameManager(ELEM_PARALLAX, ELEM_SPEED_RANGE.value, ELEM_CHARACTER_SELECT.value);
 
+  //counter-timing
+  setInterval(() => {
+    if (time == 0) {
+      //se terminó el tiempo
+      //terminar el juego
+    }else{
+      time = time - 1;
+    }
+  }, 1000 / ELEM_SPEED_RANGE.value);
 
+  //spawnear gameObjects
+  setInterval(function () {
+    gameManager.spawnGameObject();
+  }, Math.floor(Math.random()*(3000 - 1000 + 1) + 1000)/ELEM_SPEED_RANGE.value); //quiero que los gameobjects aparezcan entre 2 y 4 segundos (dividido por la speed)
+
+  gameLoop();
+}
 
 function process_user_input() {
   document.addEventListener("keydown", (e) => {
@@ -53,6 +81,7 @@ function refresh_status() {
             break;
           case "dollar":
             dollars = dollars + 100;
+            //CHECK SI GANó EL JUEGO
             break;
           case "peso":
             dollars = dollars + 1;
@@ -84,4 +113,26 @@ function gameLoop() {
   }
 }
 
-gameLoop();
+/*//////////////////////////////////////EVENT LISTENERS//////////////////////////////////////*/
+ELEM_MAIN_MENU_BUTTONS.forEach((button) => {
+  button.addEventListener('click', () => {
+    ELEM_MAIN_MENU.classList.add('display');
+    ELEM_HOW_TO_PLAY.classList.remove('display');
+    ELEM_MENU_END_WIN.classList.remove('display');
+    ELEM_MENU_END_LOSE.classList.remove('display');
+  });
+})
+
+ELEM_HOW_TO_PLAY_BUTTON.addEventListener('click', () => {
+    ELEM_MAIN_MENU.classList.add('display');
+    ELEM_HOW_TO_PLAY.classList.add('display');
+    ELEM_MENU_END_WIN.classList.remove('display');
+    ELEM_MENU_END_LOSE.classList.remove('display');
+})
+
+ELEM_PLAY_BUTTON.addEventListener('click', () =>{
+  ELEM_MAIN_MENU.classList.remove('display');
+  //arrancar el juego
+  initializeGame();
+})
+/*//////////////////////////////////////EVENT LISTENERS//////////////////////////////////////*/

@@ -40,7 +40,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#menu-fin-win{
+#menu-end-win{
     z-index: 1;
     position: absolute;
     background-color: aqua;
@@ -52,7 +52,7 @@ body {
     flex-direction: column;
 }
 
-#menu-fin-lose{
+#menu-end-lose{
     z-index: 1;
     position: absolute;
     background-color: aqua;
@@ -66,7 +66,7 @@ body {
 
 /* clase que vamos a utilizar para mostrar distintos menus usando js */
 .display{
-    display: block;
+    display: block !important;
 }
 
 /*//////////////////////////////////////MENUS//////////////////////////////////////*/
@@ -152,7 +152,7 @@ body {
 
 @keyframes jump {
     0%{background-position: 0px;}
-    50%{transform: translateY(-60px);}
+    50%{transform: translateY(-50px);}
     100%{background-position: -192px;}
 }
 /*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
