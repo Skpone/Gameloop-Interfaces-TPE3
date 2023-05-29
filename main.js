@@ -41,9 +41,21 @@ let gameManager = null; //lo declaramos acó para qué todas las funciones la pu
 let timerInterval = null;
 let spawnInterval = null;
 
+//AUDIOS QUE MANEJAMOS ACA EN EL MAIN
+let audioHimno = new Audio();
+audioHimno.src = 'Archivos/Sounds/Himno.mp3';
+
+let audioCumbia = new Audio();
+audioCumbia.src = 'Archivos/Sounds/Cumbia.mp3';
+audioCumbia.loop = true;//cuando reproduzca este audio lo quiero infinito, hasta que lo pause
+
+//AUDIOS QUE MANEJAMOS EN EL MAIN
+
 function initializeGame(){
   dollars = 0; //dollars iniciales
   time = 100; //tiempo (con 100 segundos default)
+  audioHimno.pause();//en caso de que se vuelva a jugar se pausa el himno
+  audioCumbia.play();//arranca la musica
 
   in_game = true;
   ELEM_DOLLARS_GOAL.innerHTML = `Meta: (${ELEM_DOLLARS_GOAL_SELECT.value})`;
@@ -59,6 +71,8 @@ function initializeGame(){
       clearInterval(timerInterval);
       clearInterval(spawnInterval);
       ELEM_MENU_END_LOSE.classList.add('display');
+      audioCumbia.pause();
+      audioHimno.play();
     }else{
       time = time - 1;
     }
@@ -108,6 +122,8 @@ function refresh_status() {
               clearInterval(timerInterval);
               clearInterval(spawnInterval);
               ELEM_MENU_END_WIN.classList.add('display'); //GANO EL JUEGO
+              audioCumbia.pause();
+              audioHimno.play();
             }
             break;
           case "peso":
@@ -119,6 +135,8 @@ function refresh_status() {
             clearInterval(timerInterval);
             clearInterval(spawnInterval);
             ELEM_MENU_END_LOSE.classList.add('display');
+            audioCumbia.pause();
+            audioHimno.play();
             break;
           default:
             break;

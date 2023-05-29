@@ -4,6 +4,10 @@ class Clock extends GameObject{
         /*instanciarlo implica crear el div*/
         this.elemClock = document.createElement('div');
         this.tipoDeObjecto = 'clock';
+
+        this.clockSound = new Audio();
+        this.clockSound.src = 'Archivos/Sounds/clockPick.mp3';
+        this.clockSound.playbackRate = (0.8*speed);
     }
 
     status(){
@@ -25,6 +29,7 @@ class Clock extends GameObject{
     }
 
     hit(character) {
+      this.clockSound.play();
       this.gameContainer.removeChild(this.elemClock);
       return true;
   }

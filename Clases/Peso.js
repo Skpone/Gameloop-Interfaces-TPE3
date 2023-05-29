@@ -4,6 +4,10 @@ class Peso extends GameObject{
         /*instanciarlo implica crear el div*/
         this.elemPeso = document.createElement('div');
         this.tipoDeObjecto = 'peso';
+
+        this.pesoSound = new Audio();
+        this.pesoSound.src = 'Archivos/Sounds/collectPeso.mp3';
+        this.pesoSound.playbackRate = (0.8*speed);
     }
 
     status(){
@@ -25,6 +29,7 @@ class Peso extends GameObject{
     }
 
     hit(character) {
+      this.pesoSound.play();
       this.gameContainer.removeChild(this.elemPeso);
       return true;
   }

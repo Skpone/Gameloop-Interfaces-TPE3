@@ -4,6 +4,10 @@ class Dollar extends GameObject{
         /*instanciarlo implica crear el div*/
         this.elemDollar = document.createElement('div');
         this.tipoDeObjecto = 'dollar';
+
+        this.dollarSound = new Audio();
+        this.dollarSound.src = 'Archivos/Sounds/collectDollar.mp3';
+        this.dollarSound.playbackRate = (0.8*speed);
     }
 
     status(){
@@ -25,6 +29,7 @@ class Dollar extends GameObject{
     }
 
     hit(character) {
+      this.dollarSound.play();
       this.gameContainer.removeChild(this.elemDollar);
       return true;
   }

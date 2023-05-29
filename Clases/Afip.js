@@ -25,6 +25,8 @@ class Afip extends GameObject{
     }
 
     hit(character) {
+      this.gameContainer.removeChild(this.elemAfip); //hay que eliminar el elemento, para que no quede un loop de colision entre el objeto y el character
+      character.die();
       return true;
     }
 }
