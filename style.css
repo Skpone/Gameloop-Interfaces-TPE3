@@ -4,6 +4,8 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     image-rendering: pixelated;
+    background: url(https://i.pinimg.com/originals/0f/47/44/0f47449ca8e7f8f36e8099b4cf821589.gif) no-repeat;
+    background-size: cover;
 }
 
 /*//////////////////////////////////////MENUS//////////////////////////////////////*/

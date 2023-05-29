@@ -173,8 +173,8 @@ ELEM_MAIN_MENU_BUTTONS.forEach((button) => {
 })
 
 ELEM_HOW_TO_PLAY_BUTTON.addEventListener('click', () => {
-    ELEM_MAIN_MENU.classList.add('display');
-    ELEM_HOW_TO_PLAY.classList.add('display');
+  ELEM_HOW_TO_PLAY.classList.add('display');
+    ELEM_MAIN_MENU.classList.remove('display');
     ELEM_MENU_END_WIN.classList.remove('display');
     ELEM_MENU_END_LOSE.classList.remove('display');
 })

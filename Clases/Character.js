@@ -19,6 +19,7 @@ class Character {
 
         this.jumpSound = new Audio();
         this.jumpSound.src = 'Archivos/Sounds/jump.mp3'
+        this.jumpSound.volume = 0.65;//bajamos el columen del jump pq se siente mas alto que los demás
         this.jumpSound.playbackRate = (1.3*this.speed);
     }
 
