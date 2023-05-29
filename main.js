@@ -3,29 +3,34 @@
 let in_game = false;
 
 /*//////////////////////////////////////GAME CONTAINER//////////////////////////////////////*/
-const ELEM_CHARACTER = document.querySelector('#character');
-const ELEM_PARALLAX = document.querySelector('#parallax-background');
-const ELEM_TIMER = document.querySelector('#timer');
-const ELEM_DOLLARS = document.querySelector('#dollars');
-const ELEM_DOLLARS_GOAL = document.querySelector('#dollars-goal');
+const ELEM_GAME_CONTAINER = document.querySelector('#game-container');
+const ELEM_PARALLAX = ELEM_GAME_CONTAINER.querySelector('#parallax-background');
 /*//////////////////////////////////////GAME CONTAINER//////////////////////////////////////*/
 
+/*//////////////////////////////////////TRACKING//////////////////////////////////////*/
+const ELEM_TRACKING = document.querySelector('#tracking');
+const ELEM_TIMER = ELEM_TRACKING.querySelector('#timer');
+const ELEM_DOLLARS = ELEM_TRACKING.querySelector('#dollars');
+const ELEM_DOLLARS_GOAL = ELEM_TRACKING.querySelector('#dollars-goal');
+/*//////////////////////////////////////TRACKING//////////////////////////////////////*/
+
 /*//////////////////////////////////////MENUS//////////////////////////////////////*/
-const ELEM_MAIN_MENU = document.querySelector('#main-menu');
-const ELEM_HOW_TO_PLAY = document.querySelector('#how-to-play');
-const ELEM_MENU_END_WIN = document.querySelector('#menu-end-win');
-const ELEM_MENU_END_LOSE = document.querySelector('#menu-end-lose');
+const ELEM_MENUS = document.querySelector('#menus');
+const ELEM_MAIN_MENU = ELEM_MENUS.querySelector('#main-menu');
+const ELEM_HOW_TO_PLAY = ELEM_MENUS.querySelector('#how-to-play');
+const ELEM_MENU_END_WIN = ELEM_MENUS.querySelector('#menu-end-win');
+const ELEM_MENU_END_LOSE = ELEM_MENUS.querySelector('#menu-end-lose');
 
 /*/////////////////////////////////BUTTONS/////////////////////////////////*/
-const ELEM_MAIN_MENU_BUTTONS = document.querySelectorAll('.main-menu-button');
-const ELEM_PLAY_BUTTON = document.querySelector('#play-button');
-const ELEM_HOW_TO_PLAY_BUTTON = document.querySelector('#how-to-play-button');
+const ELEM_MAIN_MENU_BUTTONS = ELEM_MENUS.querySelectorAll('.main-menu-button');
+const ELEM_PLAY_BUTTON = ELEM_MENUS.querySelector('#play-button');
+const ELEM_HOW_TO_PLAY_BUTTON = ELEM_MENUS.querySelector('#how-to-play-button');
 /*/////////////////////////////////BUTTONS/////////////////////////////////*/
 
 /*/////////////////////////////////OTROS/////////////////////////////////*/
-const ELEM_CHARACTER_SELECT = document.querySelector('#character-select');
-const ELEM_DOLLARS_GOAL_SELECT = document.querySelector('#dollars-goal-select');
-const ELEM_SPEED_RANGE = document.querySelector('#speed-range');
+const ELEM_CHARACTER_SELECT = ELEM_MENUS.querySelector('#character-select');
+const ELEM_DOLLARS_GOAL_SELECT = ELEM_MENUS.querySelector('#dollars-goal-select');
+const ELEM_SPEED_RANGE = ELEM_MENUS.querySelector('#speed-range');
 /*/////////////////////////////////OTROS/////////////////////////////////*/
 
 /*//////////////////////////////////////MENUS//////////////////////////////////////*/
@@ -44,12 +49,12 @@ function initializeGame(){
   ELEM_DOLLARS_GOAL.innerHTML = `Meta: (${ELEM_DOLLARS_GOAL_SELECT.value})`;
 
   /*pueden haber muchos personajes con solo cambiar el tipo (considerando que tienen las mismas dimensiones cada accion)*/
-  gameManager = new GameManager(ELEM_PARALLAX, ELEM_SPEED_RANGE.value, ELEM_CHARACTER_SELECT.value);
+  gameManager = new GameManager(ELEM_GAME_CONTAINER, ELEM_SPEED_RANGE.value, ELEM_CHARACTER_SELECT.value);
   
   //counter-timing
   timerInterval = setInterval(() => {
     if (time == 0) {//se terminó el tiempo
-      gameManager.purgeCharacter();//limpiamos
+      cleanGameContainer();//limpiamos
       //quitamos los intervalos para que no se superpongan
       clearInterval(timerInterval);
       clearInterval(spawnInterval);
@@ -65,6 +70,12 @@ function initializeGame(){
   }, Math.floor(Math.random()*(3000 - 1000 + 1) + 1000)/ELEM_SPEED_RANGE.value); //quiero que los gameobjects aparezcan entre 2 y 4 segundos (dividido por la speed)
 
   gameLoop();
+}
+
+function cleanGameContainer(){//limpia todos los elementos del gameContainer para que los elementos viejos no interfieran con los nuevos si se llega a instanciar el juego
+  while(ELEM_GAME_CONTAINER.firstChild){
+      ELEM_GAME_CONTAINER.removeChild(ELEM_GAME_CONTAINER.firstChild);
+  };
 }
 
 function process_user_input() {
@@ -92,7 +103,7 @@ function refresh_status() {
           case "dollar":
             dollars = dollars + 100;
             if(dollars >= ELEM_DOLLARS_GOAL_SELECT.value){ //SI SE LLEGO A LA META
-              gameManager.purgeCharacter(); //limpiamos
+              cleanGameContainer(); //limpiamos
               //quitamos los intervalos para que no se superpongan
               clearInterval(timerInterval);
               clearInterval(spawnInterval);
@@ -103,7 +114,7 @@ function refresh_status() {
             dollars = dollars + 1;
             break;
           case "afip":
-            gameManager.purgeCharacter(); //limpiamos
+            cleanGameContainer(); //limpiamos
             //quitamos los intervalos para que no se superpongan
             clearInterval(timerInterval);
             clearInterval(spawnInterval);

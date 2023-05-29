@@ -1,6 +1,7 @@
 class ObjectPool {
   //el encargado de crear, ejecutar y reutilizar los GameObjects
-  constructor(speed) {
+  constructor(gameContainer, speed) {
+    this.gameContainer = gameContainer; //donde vamos a poner a los gameObjects
     this.speed = speed;
     this.pool = []; //arrayList donde guardamos los gameObjects
     this.enExecucion = []; //arraylist con los elementos que están en el game
@@ -33,22 +34,22 @@ class ObjectPool {
 
     switch (opciones[random]) {
       case "Afip":
-        return new Afip(this.speed);
+        return new Afip(this.gameContainer, this.speed);
         break;
       case "Clock":
-        return new Clock(this.speed);
+        return new Clock(this.gameContainer, this.speed);
         break;
       case "Dollar":
-        return new Dollar(this.speed);
+        return new Dollar(this.gameContainer, this.speed);
         break;
       case "Peso":
-        return new Peso(this.speed);
+        return new Peso(this.gameContainer, this.speed);
         break;
       case "Thief":
-        return new Thief(this.speed);
+        return new Thief(this.gameContainer, this.speed);
         break;
       default:
-        return new Dollar(this.speed);
+        return new Dollar(this.gameContainer, this.speed);
         break;
     }
   }

@@ -1,9 +1,9 @@
 class GameManager {
-  constructor(elemParallax, speed, characterType) {
+  constructor(gameContainer, speed, characterType) {
     this.gameSpeed = speed;
-    this.character = new Character(this.gameSpeed, characterType);
-    this.poolDeGameObjects = new ObjectPool(this.gameSpeed);
-    this.parallax = new Parallax(elemParallax, this.gameSpeed);
+    this.character = new Character(gameContainer, this.gameSpeed, characterType);
+    this.poolDeGameObjects = new ObjectPool(gameContainer, this.gameSpeed);
+    this.parallax = new Parallax(gameContainer, this.gameSpeed);
     this.parallax.animate();
   }
 
@@ -45,10 +45,6 @@ class GameManager {
 
   hitWithGameObject(gameObject){
     return gameObject.hit(this.character);
-  }
-
-  purgeCharacter(){
-    this.character.finish();
   }
 
 }

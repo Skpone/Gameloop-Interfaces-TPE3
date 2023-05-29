@@ -1,9 +1,8 @@
 class Character {
-    constructor(speed, tipo){
+    constructor(gameContainer, speed, tipo){
         this.speed = speed;
-        this.elemGameContainer = document.querySelector('#game-container');
         this.elemCharacter = document.createElement('div');/*el elemento html que representa al character*/
-        this.elemGameContainer.appendChild(this.elemCharacter);
+        gameContainer.appendChild(this.elemCharacter);
         this.elemCharacter.classList.add('character');
         this.tipo = tipo;
         this.estado = 'undefined'; //estado por defecto del character
@@ -48,11 +47,6 @@ class Character {
     
             this.elemCharacter.addEventListener("animationend", backToRun); 
         }
-    }
-
-    finish(){
-        this.estado = 'finished';
-        this.elemGameContainer.removeChild(this.elemCharacter);
     }
 
     status(){

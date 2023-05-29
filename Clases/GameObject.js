@@ -1,7 +1,7 @@
 class GameObject{
-    constructor(speed){
+    constructor(gameContainer, speed){
         this.speed = speed;
-        this.elemGameContainer = document.querySelector('#game-container');
+        this.gameContainer = gameContainer;
         this.tipoDeObjecto = 'undefined';
     }
     status() {

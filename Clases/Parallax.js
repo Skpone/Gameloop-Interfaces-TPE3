@@ -1,15 +1,28 @@
 class Parallax{ /*Esta clase del parallax existe para la funcionalidad del speed*/
-    constructor(elemParallax, speed){
-        this.elemParallax = elemParallax;
+    constructor(gameContainer, speed){
         this.speed = speed;
 
-        this.image0 = this.elemParallax.querySelector('#image-0');
-        this.image1 = this.elemParallax.querySelector('#image-1');
-        this.image2 = this.elemParallax.querySelector('#image-2');
-        this.image3 = this.elemParallax.querySelector('#image-3');
-        this.image4 = this.elemParallax.querySelector('#image-4');
-        this.image5 = this.elemParallax.querySelector('#image-5');
-        this.image6 = this.elemParallax.querySelector('#image-6');
+        //creamos div para guardar cada imagen
+        this.parallaxContainer = document.createElement('div');
+        gameContainer.appendChild(this.parallaxContainer);//lo ponemos dentro del game-container
+
+        //creamos los divs para cada imagen
+        this.image0 = this.initializeImageWithNumber(0);
+        this.image1 = this.initializeImageWithNumber(1);
+        this.image2 = this.initializeImageWithNumber(2);
+        this.image3 = this.initializeImageWithNumber(3);
+        this.image4 = this.initializeImageWithNumber(4);
+        this.image5 = this.initializeImageWithNumber(5);
+        this.image6 = this.initializeImageWithNumber(6);
+
+    }
+
+    initializeImageWithNumber(number){
+        let newImage = document.createElement('div');
+        this.parallaxContainer.appendChild(newImage);
+        newImage.classList.add('images');
+        newImage.id = `image-${number}`;
+        return newImage;
     }
 
     animate(){
