@@ -47,4 +47,8 @@ class GameManager {
     return gameObject.hit(this.character);
   }
 
+  purgeCharacter(){
+    this.character.finish();
+  }
+
 }

@@ -25,7 +25,6 @@ class Afip extends GameObject{
     }
 
     hit(character) {
-      character.finish();
       return true;
     }
 }
