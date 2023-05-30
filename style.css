@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     image-rendering: pixelated;
+    background-color:rgb(241, 219, 192);
 }
 
 #game-container{/*el juego zoomeado para mejorar la jugabilidad*/
@@ -11,63 +12,63 @@ body {
     transform: translateY(-100px);
 }
 
-/*//////////////////////////////////////MENUS//////////////////////////////////////*/
-
-#main-menu{
-    z-index: 1;
+#tracking{
+    padding: 2px;
     position: absolute;
-    height: 100vh;
-    width: 100vw;
-    display: none;
-    align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
-
-    /* TERMINAR DE IMPLEMENTAR */
+    align-items: center;
     background: url(https://i.pinimg.com/originals/0f/47/44/0f47449ca8e7f8f36e8099b4cf821589.gif) no-repeat;
     background-size: cover;
+    border: solid black 2px;
+    top: 5%;
+    left: 3.55%;
+    transform: scale(2);
+    border-radius: 10px;
+    font-style: italic;
+    color: black;
+    font-weight: bold;
+    display: none;
+    opacity: 0.8;
 }
 
-#how-to-play{
+/*//////////////////////////////////////MENUS//////////////////////////////////////*/
+
+#main-menu, #menu-end-win, #menu-end-lose {
     z-index: 1;
     position: absolute;
-    background-color: aqua;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: url(https://i.pinimg.com/originals/0f/47/44/0f47449ca8e7f8f36e8099b4cf821589.gif) no-repeat;
+    background-size: cover;
+  }
+
+  #main-menu *, #menu-end-win *, #menu-end-lose * {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    font-weight: bold;
+  }
+
+#how-to-play{
+    padding: 100px;
+    z-index: 1;
+    position: absolute;
+    display: none;
     height: 50vh;
     width: 50vw;
-    display: none;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    
+    border: solid black 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: x-large;
+
+    background: url(https://i.pinimg.com/originals/0f/47/44/0f47449ca8e7f8f36e8099b4cf821589.gif) no-repeat;
+    background-size: cover;
     /* PARA CENTRAR LA SECCION */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#menu-end-win{
-    z-index: 1;
-    position: absolute;
-    background-color: aqua;
-    height: 100vh;
-    width: 100vw;
-    display: none;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-#menu-end-lose{
-    z-index: 1;
-    position: absolute;
-    background-color: aqua;
-    height: 100vh;
-    width: 100vw;
-    display: none;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
+} 
 
 /* clase que vamos a utilizar para mostrar distintos menus usando js */
 .display{
@@ -80,8 +81,8 @@ body {
 /*//////////////////////////////////////PARALLAX//////////////////////////////////////*/
 .images {
     width: 1600px;
-    height: 100vh;
-    top: 0px; /*para ubicar mejor el "background"*/
+    height: 500px;
+    top: 124px;
     position: absolute;
 }
 
@@ -132,7 +133,7 @@ body {
     position: absolute;
     bottom: -443px;
     left: 10px;
-    z-index: 2;
+    z-index: 1;
 }
 
 @keyframes idle {
