@@ -73,6 +73,7 @@ function initializeGame(){
       ELEM_MENU_END_LOSE.classList.add('display');
       audioCumbia.pause();
       audioHimno.play();
+      in_game = false;
     }else{
       time = time - 1;
     }
@@ -124,6 +125,7 @@ function refresh_status() {
               ELEM_MENU_END_WIN.classList.add('display'); //GANO EL JUEGO
               audioCumbia.pause();
               audioHimno.play();
+              in_game = false;
             }
             break;
           case "peso":
@@ -137,6 +139,7 @@ function refresh_status() {
             ELEM_MENU_END_LOSE.classList.add('display');
             audioCumbia.pause();
             audioHimno.play();
+            in_game = false;
             break;
           default:
             break;
