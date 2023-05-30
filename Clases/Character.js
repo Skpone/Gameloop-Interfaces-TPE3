@@ -15,7 +15,7 @@ class Character {
 
         this.dieSound = new Audio();
         this.dieSound.src = 'Archivos/Sounds/punchDie.mp3';
-        this.dieSound.playbackRate = (0.5*this.speed);
+        this.dieSound.playbackRate = (0.9*this.speed);
 
         this.jumpSound = new Audio();
         this.jumpSound.src = 'Archivos/Sounds/jump.mp3'

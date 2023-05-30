@@ -6,6 +6,11 @@ body {
     image-rendering: pixelated;
 }
 
+#game-container{/*el juego zoomeado para mejorar la jugabilidad*/
+    zoom: 2;
+    transform: translateY(-100px);
+}
+
 /*//////////////////////////////////////MENUS//////////////////////////////////////*/
 
 #main-menu{
@@ -75,7 +80,7 @@ body {
 /*//////////////////////////////////////PARALLAX//////////////////////////////////////*/
 .images {
     width: 1600px;
-    height: 100%; /*se pueden usar píxeles también*/
+    height: 100vh;
     top: 0px; /*para ubicar mejor el "background"*/
     position: absolute;
 }
@@ -122,12 +127,12 @@ body {
 
 /*//////////////////////////////////////CHARACTER//////////////////////////////////////*/
 .character{
-    height: 39px;
-    width: 34px; /*modificable de 34px hasta 48px (inclusive)*/
+    height: 39.4px;
+    width: 35px; /*modificable de 34px hasta 48px (inclusive)*/
     position: absolute;
-    bottom: 41%;
+    bottom: -443px;
     left: 10px;
-    z-index: 1;
+    z-index: 2;
 }
 
 @keyframes idle {
@@ -162,7 +167,7 @@ body {
     height: 24px;
     width: 48px;
     position: absolute;
-    bottom: 50%;
+    bottom: -374px;
     background-image: url(Archivos/AFIP.jpg);
 }
 
@@ -170,7 +175,7 @@ body {
     height: 20px;
     width: 48px;
     position: absolute;
-    bottom: 50%;
+    bottom: -374px;
     background-image: url(Archivos/dollar.png);
 }
 
@@ -178,7 +183,7 @@ body {
     height: 48px;
     width: 48px;
     position: absolute;
-    bottom: 40%;
+    bottom: -447.3px;
     background-image: url(Archivos/clock.png);
 }
 
@@ -186,7 +191,7 @@ body {
     height: 20px;
     width: 48px;
     position: absolute;
-    bottom: 40%;
+    bottom: -440px;
     background-image: url(Archivos/peso.png);
 }
 
@@ -194,7 +199,7 @@ body {
     height: 49px;
     width: 48px;
     position: absolute;
-    bottom: 40%;
+    bottom: -447.7px;
     background-image: url(Archivos/thief.png);
 }
 
